@@ -30,17 +30,20 @@ const App = () => {
         )
       })
       console.log("vowelsArray:", vowelsArray)
-      let vowels = "aeiouAEIOU"
+      
       // ACTION ITEM: your Pig Latin logic goes here!
 
-      //Psudo Code:
-        //input: if first letter of word = first vowel in word, then the word begins with a vowel.
-          //output: Use .concat() to add "way" to the end of the word
+      // Pseudocode
+          // Input: If the first letter in the word is strictly equal to the first vowel in the word, then we can say the word starts with a vowel
+            // Output: .concat() "way" to the end of the word
+          // Input: if the index of "qu" is != -1, then the word contains "qu"; if the index of "qu" < the index of the first vowel in the word, then qu comes before any other vowel
+            // Output: slice of the word starting after "qu" plus slice of the beginning of the word plus "ay"
 
-      if (eachWord[0] === vowelsArray[0]){
-        eachWord = eachWord.concat("way")
-      } 
-    
+        if (eachWord[0] === vowelsArray[0]) {
+          eachWord = eachWord.concat("way")
+        } else if (eachWord.indexOf("qu") !== -1 && eachWord.indexOf("qu") < eachWord.indexOf(vowelsArray[0])) {
+          eachWord = eachWord.slice(eachWord.indexOf("qu")+2).concat(eachWord.slice(0, eachWord.indexOf("qu")+2)).concat("ay")
+        }
         
 
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
