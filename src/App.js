@@ -42,6 +42,8 @@ const App = () => {
           //input: if eachWord has no vowels but has a y
           //output: eachWord.slice() and add letters before that y to after the Y.
           // example: fry => y+fr+ay
+          //Input: All other cases
+          //Output: slice of the word starting at first vowel plus slice of the beginning of the word plus "ay"
 
         if (eachWord[0] === vowelsArray[0]) {
           eachWord = eachWord.concat("way")
@@ -49,7 +51,9 @@ const App = () => {
           eachWord = eachWord.slice(eachWord.indexOf("qu")+2).concat(eachWord.slice(0, eachWord.indexOf("qu")+2)).concat("ay")
         } else if (eachWord.indexOf("y") !== -1 && eachWord.indexOf(vowelsArray[0]) === -1) {
           eachWord = eachWord.slice(eachWord.indexOf("y")).concat(eachWord.slice(0, eachWord.indexOf("y"))).concat("ay")
-        }
+        } else (
+          eachWord = eachWord.slice(eachWord.indexOf(vowelsArray[0])).concat(eachWord.slice(0, eachWord.indexOf(vowelsArray[0]))).concat("ay")
+        )
         
 
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
