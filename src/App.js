@@ -39,10 +39,16 @@ const App = () => {
           // Input: if the index of "qu" is != -1, then the word contains "qu"; if the index of "qu" < the index of the first vowel in the word, then qu comes before any other vowel
             // Output: slice of the word starting after "qu" plus slice of the beginning of the word plus "ay"
 
+          //input: if eachWord has no vowels but has a y
+          //output: eachWord.slice() and add letters before that y to after the Y.
+          // example: fry => y+fr+ay
+
         if (eachWord[0] === vowelsArray[0]) {
           eachWord = eachWord.concat("way")
         } else if (eachWord.indexOf("qu") !== -1 && eachWord.indexOf("qu") < eachWord.indexOf(vowelsArray[0])) {
           eachWord = eachWord.slice(eachWord.indexOf("qu")+2).concat(eachWord.slice(0, eachWord.indexOf("qu")+2)).concat("ay")
+        } else if (eachWord.indexOf("y") !== -1 && eachWord.indexOf(vowelsArray[0]) === -1) {
+          eachWord = eachWord.slice(eachWord.indexOf("y")).concat(eachWord.slice(0, eachWord.indexOf("y"))).concat("ay")
         }
         
 
